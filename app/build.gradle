@@ -1,0 +1,70 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion App.compileSdkVersion
+
+    buildFeatures {
+        dataBinding true
+    }
+
+    defaultConfig {
+        applicationId "com.yvkalume.modularized"
+        minSdkVersion App.minSdkVersion
+        targetSdkVersion App.targetSdkVersion
+        versionCode 1
+        versionName App.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+dependencies {
+    implementation project(":model")
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation Kotlin.stdlib
+
+    implementation AndroidX.coreKtx
+    implementation AndroidX.appCompat
+    implementation AndroidX.constraintLayout
+    implementation AndroidX.legacySupport
+    implementation AndroidX.recyclerView
+    implementation AndroidX.cardView
+
+    implementation Coroutines.core
+    implementation Coroutines.android
+
+    implementation Koin.android
+    implementation Koin.androidxScope
+    implementation Koin.viewmodel
+
+    implementation LifeCycle.extension
+    implementation LifeCycle.viewmodel
+
+    implementation Retrofit.retrofit
+    implementation Retrofit.gson
+    implementation Retrofit.coroutinesAdapter
+
+    testImplementation TestDeps.jUnit
+    androidTestImplementation TestDeps.junitExt
+    androidTestImplementation TestDeps.expressoCore
+
+}
