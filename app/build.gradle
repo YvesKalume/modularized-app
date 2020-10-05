@@ -62,6 +62,7 @@ dependencies {
     implementation Retrofit.retrofit
     implementation Retrofit.gson
     implementation Retrofit.coroutinesAdapter
+    implementation Mavericks.mvrx
 
     testImplementation TestDeps.jUnit
     androidTestImplementation TestDeps.junitExt

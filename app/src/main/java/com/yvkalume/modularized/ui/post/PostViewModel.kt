@@ -22,8 +22,12 @@ class PostViewModel(private val repository: PostRepository) : ViewModel() {
 
     private fun getData() {
         viewModelScope.launch {
-            repository.getPosts().collect {
-                _posts.postValue(it)
+            try {
+                repository.getPosts().collect {
+                    _posts.postValue(it)
+                }
+            } catch (t: Throwable) {
+                Log.d("PostViewModel","erreur : ${t.message}")
             }
         }
     }

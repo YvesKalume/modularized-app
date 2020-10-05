@@ -50,3 +50,7 @@ object TestDeps {
     const val junitExt = "androidx.test.ext:junit:1.1.2"
     const val expressoCore = "androidx.test.espresso:espresso-core:3.3.0"
 }
+
+object Mavericks {
+    const val mvrx = "com.airbnb.android:mvrx:2.0.0-beta1"
+}
