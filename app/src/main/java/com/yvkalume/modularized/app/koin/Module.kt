@@ -10,9 +10,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 val viewModelModule = module {
-    viewModel {
-        PostViewModel(get())
-    }
+
 }
 
 val repositoryModule = module {
